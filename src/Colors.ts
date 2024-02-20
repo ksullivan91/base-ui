@@ -11,4 +11,5 @@ export const Colors = {
   purple: '#7048E8',
   darkPurple: '#5028c6',
   blue: '#51CF66',
+  error: '#F03D3E',
 };
