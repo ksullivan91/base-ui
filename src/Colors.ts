@@ -12,4 +12,6 @@ export const Colors = {
   darkPurple: '#5028c6',
   blue: '#51CF66',
   error: '#F03D3E',
+  notification: '#D84910',
+  success: '#007B40',
 };

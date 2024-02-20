@@ -2,13 +2,7 @@ import React from 'react';
 import { Input, inputClasses, InputOwnProps } from '@mui/base/Input';
 import styled from 'styled-components';
 import { Colors } from './Colors';
-
-type StatusType = 'inactive' | 'success' | 'error' | 'label';
-
-export interface Status {
-  type: StatusType;
-  message: string | React.ReactNode;
-}
+import { Status, StatusType } from './utils/useStatus';
 
 interface InputStatusProps {
   labelText?: string;
@@ -18,23 +12,29 @@ type TextInputProps = InputOwnProps &
   React.InputHTMLAttributes<HTMLInputElement> &
   InputStatusProps;
 
-// Updated Styled components
 const StyledInputContainer = styled.div<{ status?: Status }>`
-  position: relative; // Set to relative to use absolute positioning for children
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; // Center the input within the container
+  align-items: center;
   border: 1px solid
-    ${(props) =>
-      props.status?.type === 'error' ? Colors.error : Colors.monoGrayTwo};
+    ${(props) => {
+      switch (props.status?.type) {
+        case 'error':
+          return Colors.error;
+        case 'notification':
+          return Colors.notification;
+        case 'success':
+          return Colors.success;
+        default:
+          return Colors.monoGrayTwo;
+      }
+    }};
   border-radius: 8px;
   transition: border-color 0.3s;
 
   &:focus-within {
     border-color: ${Colors.pink};
-  }
-  &:disabled {
-    border: 1px solid ${Colors.monograyOne};
   }
   margin: 16px 0;
 `;
@@ -86,14 +86,21 @@ const StyledStatusMessage = styled.div<{ statusType?: StatusType }>`
   bottom: -4px;
   left: 0px;
   transform: translateY(100%);
-  color: ${(props) =>
-    props.statusType === 'error' ? Colors.error : Colors.monoGrayFour};
+  color: ${(props) => {
+    switch (props.statusType) {
+      case 'error':
+        return Colors.error;
+      case 'notification':
+        return Colors.notification;
+      case 'success':
+        return Colors.success;
+      default:
+        return Colors.monoGrayFour;
+    }
+  }};
   padding: 4px 8px;
   font-size: 0.75rem;
   font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
 `;
 
 const StyledSpan = styled.span<{

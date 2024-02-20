@@ -19,19 +19,32 @@ const Container = styled.div`
 
 export default meta;
 
-export const Default: StoryObj = {
+// Existing stories...
+
+export const WithNotificationStatus: StoryObj = {
   render: (args) => (
     <Container>
-      <TextInput {...args} placeholder='Default Input' />
-      <TextInput {...args} disabled placeholder='Disabled Input' />
+      <TextInput
+        {...args}
+        status={{ type: 'label', message: 'info message' }}
+        placeholder='Input text here'
+      />
     </Container>
   ),
   args: {},
 };
 
-export const WithStatusMessages: StoryObj = {
+// You might want to showcase the TextInput with various status types in one comprehensive story
+export const AllStatusTypes: StoryObj = {
   render: (args) => (
     <Container>
+      <TextInput {...args} placeholder='Default Input' />
+      <TextInput {...args} disabled placeholder='Disabled Input' />
+      <TextInput
+        {...args}
+        status={{ type: 'label', message: 'Label message' }}
+        placeholder='Label'
+      />
       <TextInput
         {...args}
         status={{ type: 'success', message: 'Success message' }}
@@ -44,29 +57,10 @@ export const WithStatusMessages: StoryObj = {
       />
       <TextInput
         {...args}
-        status={{ type: 'label', message: 'Label message' }}
-        placeholder='Label'
+        status={{ type: 'notification', message: 'Notification message' }}
+        placeholder='Notification'
       />
     </Container>
   ),
   args: {},
 };
-
-export const RequiredAndOptional: StoryObj = {
-  render: (args) => (
-    <Container>
-      <TextInput
-        {...args}
-        required
-        labelText='Required Input'
-        placeholder='Required'
-      />
-      <TextInput {...args} labelText='Optional Input' placeholder='Optional' />
-    </Container>
-  ),
-  args: {},
-};
-
-// You can add more variations to showcase other aspects of the TextInput component,
-// such as handling long text, displaying with various label texts, or being used in
-// different layout contexts.
