@@ -57,5 +57,3 @@ export const Variants: StoryObj<JSX.IntrinsicAttributes> = {
     </Container>
   ),
 };
-
-// You can also define additional stories for specific variants if needed

@@ -20,7 +20,7 @@ const ButtonStyles = css`
 
   &:hover,
   &:focus {
-    background-color: ${Colors.darkPink}; // Adjust based on your color theme
+    background-color: ${Colors.darkPink};
   }
 
   &:disabled {
@@ -29,7 +29,7 @@ const ButtonStyles = css`
       cursor: not-allowed;
     }
     &:hover {
-      background-color: inherit; // Keep the background color on hover for disabled state
+      background-color: inherit;
     }
   }
 
