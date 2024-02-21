@@ -523,6 +523,10 @@ export const IconVariants = {
   map: MapIcon,
 };
 
+export const variants: IconVariant[] = Object.keys(
+  IconVariants
+) as IconVariant[];
+
 export type IconVariant = keyof typeof IconVariants;
 
 const Icon: React.FC<IconProps> = ({ variant, ...props }) => {

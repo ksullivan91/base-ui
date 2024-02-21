@@ -30,7 +30,7 @@ describe('TextInput Component', () => {
     render(<TextInput status={status} />);
     expect(screen.getByText(status.message as string)).toBeInTheDocument();
     expect(screen.getByText(status.message as string)).toHaveStyle(
-      `color: ${Colors.darkPink}`
+      `color: ${Colors.error}`
     );
   });
 

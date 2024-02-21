@@ -39,7 +39,7 @@ const StyledInputContainer = styled.div<{ status?: Status }>`
   margin: 16px 0;
 `;
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(Input)<React.InputHTMLAttributes<HTMLInputElement>>`
   && {
     max-height: 56px;
     width: calc(100% - 16px); // Adjust width to account for padding
@@ -81,13 +81,13 @@ const StyledLabel = styled.label`
   color: ${Colors.monoGrayThree};
 `;
 
-const StyledStatusMessage = styled.div<{ statusType?: StatusType }>`
+const StyledStatusMessage = styled.div<{ statustype?: StatusType }>`
   position: absolute;
   bottom: -4px;
   left: 0px;
   transform: translateY(100%);
   color: ${(props) => {
-    switch (props.statusType) {
+    switch (props.statustype) {
       case 'error':
         return Colors.error;
       case 'notification':
@@ -128,10 +128,9 @@ const TextInput: React.FC<TextInputProps> = ({
       <StyledInput
         id={inputId}
         {...props}
-        status={status?.type}
         aria-describedby={`${inputId}-status`}
       />
-      <StyledStatusMessage id={`${inputId}-status`} statusType={status?.type}>
+      <StyledStatusMessage id={`${inputId}-status`} statustype={status?.type}>
         {status?.message}
       </StyledStatusMessage>
     </StyledInputContainer>
