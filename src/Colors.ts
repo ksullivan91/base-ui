@@ -3,7 +3,7 @@ export const Colors = {
   monoGrayFour: '#495057',
   monoGrayThree: '#ACB5BD',
   monoGrayTwo: '#DDE2E5',
-  monograyOne: '#F8F9FA',
+  monoGrayOne: '#F8F9FA',
   lightPink: '#e85b8180',
   pink: '#E85B81',
   darkPink: '#c12f5d',

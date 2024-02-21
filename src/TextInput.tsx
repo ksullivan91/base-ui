@@ -128,6 +128,7 @@ const TextInput: React.FC<TextInputProps> = ({
       <StyledInput
         id={inputId}
         {...props}
+        status={status?.type}
         aria-describedby={`${inputId}-status`}
       />
       <StyledStatusMessage id={`${inputId}-status`} statusType={status?.type}>

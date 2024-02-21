@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import TextInput, { Status } from '../TextInput';
+import TextInput from '../TextInput';
 import { Colors } from '../Colors';
+import { Status } from '../utils/useStatus';
 
 describe('TextInput Component', () => {
   test('renders with placeholder text', () => {

@@ -1,5 +1,10 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'mjs'],
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'], // This line ensures jest-dom matchers are available globally
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '/bin/', '/cypress'],
 };
+
+export default config;
