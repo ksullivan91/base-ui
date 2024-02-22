@@ -82,7 +82,17 @@ const Alerts: React.FC<AlertsProps> = ({
         <Typography variant='p' color={AlertColors[status]}>
           {message}
         </Typography>
-        <CloseIconContainer onClick={handleClose}>
+        <CloseIconContainer
+          onClick={handleClose}
+          role='button'
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              handleClose();
+            }
+          }}
+          aria-label='Close alert'
+        >
           <Icon variant='cross' stroke={AlertColors.monoBlack} />
         </CloseIconContainer>
       </StyledAlert>

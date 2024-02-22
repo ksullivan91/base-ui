@@ -3,7 +3,6 @@ import { Button as ButtonBase, ButtonOwnProps } from '@mui/base/Button';
 import { Typography } from './Typography';
 import { Colors } from './Colors';
 
-// Base styled component for the buttons
 const ButtonStyles = css`
   cursor: pointer;
   height: 48px;

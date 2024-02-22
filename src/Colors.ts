@@ -14,4 +14,6 @@ export const Colors = {
   error: '#F03D3E',
   notification: '#D84910',
   success: '#007B40',
+  monoWhite: '#FFFFFF',
+  highlight: '#8CE0F3',
 };

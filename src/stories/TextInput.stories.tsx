@@ -19,8 +19,6 @@ const Container = styled.div`
 
 export default meta;
 
-// Existing stories...
-
 export const WithNotificationStatus: StoryObj = {
   render: (args) => (
     <Container>
@@ -34,7 +32,6 @@ export const WithNotificationStatus: StoryObj = {
   args: {},
 };
 
-// You might want to showcase the TextInput with various status types in one comprehensive story
 export const AllStatusTypes: StoryObj = {
   render: (args) => (
     <Container>

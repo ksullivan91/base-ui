@@ -1,14 +1,8 @@
-import React, { useState, ReactElement } from 'react';
-
-export interface RadioSelectProps {
-  value: string;
-  checked?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  name?: string;
-}
+import React, { useState } from 'react';
+import { RadioProps } from './Radio';
 
 interface RadioGroupProps {
-  children: ReactElement<RadioSelectProps>[]; // Specify that children should be an array of React elements with RadioSelectProps
+  children: React.ReactNode; // Allows for more flexibility
   name: string;
   defaultValue?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -31,9 +25,10 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
   return (
     <div role='radiogroup'>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement<RadioSelectProps>(child)) {
+      {React.Children.map(children, (child, index) => {
+        if (React.isValidElement<RadioProps>(child)) {
           return React.cloneElement(child, {
+            id: `${name}-${index}`, // Dynamically generate an ID
             checked: child.props.value === value,
             onChange: handleChange,
             name: name,

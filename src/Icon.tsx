@@ -495,7 +495,17 @@ export const CrossIcon: React.FC<IconProps> = (props) => (
     />
   </svg>
 );
-
+export const CheckIcon: React.FC<IconProps> = (props) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width='15' height='13' fill='none'>
+    <path
+      stroke={props.stroke}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='3'
+      d='M1.5 7.5 5 11l8-9'
+    />
+  </svg>
+);
 export const IconVariants = {
   house: HouseIcon,
   help: HelpIcon,
@@ -521,6 +531,7 @@ export const IconVariants = {
   user: UserIcon,
   cross: CrossIcon,
   map: MapIcon,
+  check: CheckIcon,
 };
 
 export const variants: IconVariant[] = Object.keys(
