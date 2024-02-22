@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Colors } from './Colors'; // Ensure this path is correct
+import { Colors } from './Colors';
 
 export interface RadioProps {
   value: string;
@@ -8,7 +8,7 @@ export interface RadioProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   disabled?: boolean;
-  id: string; // Added to ensure label and input association for accessibility
+  id: string;
 }
 
 const StyledLabel = styled.label`
@@ -33,7 +33,7 @@ const HiddenRadioInput = styled.input.attrs({ type: 'radio' })`
     box-shadow: ${Colors.highlight} auto 5px;
   }
   &:focus-visible + div {
-    box-shadow: 0 0 0 3px ${Colors.highlight}; /* Focus indicator */
+    box-shadow: 0 0 0 3px ${Colors.highlight};
   }
 `;
 

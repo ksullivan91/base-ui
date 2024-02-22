@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { Portal, PortalProps } from '@mui/base'; // Make sure to import PortalProps for type definitions
+import { Portal, PortalProps } from '@mui/base';
 import Icon from './Icon';
 import { Colors } from './Colors';
 import { StatusType } from './utils/useStatus';

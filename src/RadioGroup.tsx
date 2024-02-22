@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RadioProps } from './Radio';
 
 interface RadioGroupProps {
-  children: React.ReactNode; // Allows for more flexibility
+  children: React.ReactNode;
   name: string;
   defaultValue?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -28,7 +28,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
       {React.Children.map(children, (child, index) => {
         if (React.isValidElement<RadioProps>(child)) {
           return React.cloneElement(child, {
-            id: `${name}-${index}`, // Dynamically generate an ID
+            id: `${name}-${index}`,
             checked: child.props.value === value,
             onChange: handleChange,
             name: name,

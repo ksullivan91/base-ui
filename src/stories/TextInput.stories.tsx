@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import TextInput from '../TextInput'; // Adjust the import path as necessary
+import TextInput from '../TextInput';
 import styled from 'styled-components';
 
 const meta: Meta = {

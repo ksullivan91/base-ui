@@ -79,7 +79,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   label,
   ...props
 }) => {
-  const id = props.id || name; // Ensure the input has an id for label association
+  const id = props.id || name;
 
   return (
     <CheckboxContainer>
