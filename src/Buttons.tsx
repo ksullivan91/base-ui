@@ -78,10 +78,12 @@ const StyledSecondaryButton = styled(ButtonBase)`
 
   &:hover {
     border: 1px solid #252525;
+    background-color: #fff;
   }
 
   &:disabled {
     border: 1px solid #b5b5b580;
+    background-color: #fff;
     label {
       color: #b5b5b580;
     }
