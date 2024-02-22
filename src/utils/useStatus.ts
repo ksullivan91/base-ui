@@ -12,9 +12,7 @@ export interface Status {
   message: string | React.ReactNode;
 }
 
-const useStatus = (
-  initialStatus: Status = { type: 'inactive', message: '' }
-) => {
+function useStatus(initialStatus: Status = { type: 'inactive', message: '' }) {
   const [status, setStatus] = useState<Status>(initialStatus);
 
   const updateStatus = (
@@ -25,6 +23,6 @@ const useStatus = (
   };
 
   return { status, updateStatus };
-};
+}
 
 export default useStatus;
