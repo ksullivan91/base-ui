@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: test
-        with:
-          build_command: npm test
+        run: npm test
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
         with:
           path: dist/storybook
