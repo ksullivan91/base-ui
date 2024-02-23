@@ -4,22 +4,22 @@ import Switch from '../Switch'; // Replace with the actual path to your Switch c
 
 describe('Switch', () => {
   it('should toggle the switch', () => {
-    const handleChange = jest.fn();
-    render(<Switch onChange={handleChange} />);
-    const toggle = screen.getByRole('checkbox');
-    fireEvent.click(toggle);
-    expect(handleChange).toHaveBeenCalled();
+    render(<Switch aria-label='Switch' />);
+    const switchElement = screen.getByRole('switch');
+    expect(switchElement).not.toBeChecked();
+    fireEvent.click(switchElement);
+    expect(switchElement).toBeChecked();
   });
 
   it('should be checked when the checked prop is true', () => {
     render(<Switch checked />);
-    const toggle = screen.getByRole('checkbox');
+    const toggle = screen.getByRole('switch');
     expect(toggle).toBeChecked();
   });
 
   it('should be disabled when the disabled prop is true', () => {
     render(<Switch disabled />);
-    const toggle = screen.getByRole('checkbox');
+    const toggle = screen.getByRole('switch');
     expect(toggle).toBeDisabled();
   });
 });
