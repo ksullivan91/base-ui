@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '../Tooltip'; // Adjust the import path as necessary
 import styled from 'styled-components';
+import { AlternativeButton, PrimaryButton, SecondaryButton } from '../Buttons';
 
 const meta: Meta = {
   title: 'Example/Tooltip',
@@ -21,33 +22,11 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const StyledButton = styled.button`
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-
-  &:focus {
-    outline: 2px solid #80bdff;
-  }
-
-  &:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-  }
-`;
-
 export const DefaultTooltip: StoryObj = {
   render: () => (
     <Container>
       <Tooltip tip='Default Tooltip'>
-        <StyledButton>Hover me</StyledButton>
+        <PrimaryButton>Hover me</PrimaryButton>
       </Tooltip>
     </Container>
   ),
@@ -63,7 +42,7 @@ export const InteractiveTooltip: StoryObj = {
         onMouseLeave={() => setShow(false)}
       >
         <Tooltip tip='Interactive Tooltip' open={show}>
-          <StyledButton>Hover me</StyledButton>
+          <SecondaryButton>Hover me</SecondaryButton>
         </Tooltip>
       </Container>
     );
@@ -75,7 +54,7 @@ export const DisabledButtonWithTooltip: StoryObj = {
   render: () => (
     <Container>
       <Tooltip tip="You can't interact with this button">
-        <StyledButton disabled>Disabled Button</StyledButton>
+        <AlternativeButton disabled>Disabled Button</AlternativeButton>
       </Tooltip>
     </Container>
   ),
