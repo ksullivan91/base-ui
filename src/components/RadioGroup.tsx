@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RadioProps } from './Radio';
 
-interface RadioGroupProps {
+export interface RadioGroupProps {
   children: React.ReactNode;
   name: string;
   defaultValue?: string;

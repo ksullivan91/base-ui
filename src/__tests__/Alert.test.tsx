@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Alerts from '../Alert';
+import Alerts from '../components/Alert';
 
 describe('Alerts Component', () => {
   it('renders a success message', () => {

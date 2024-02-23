@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Switch from '../Switch'; // Replace with the actual path to your Switch component
+import Switch from '../components/Switch'; // Replace with the actual path to your Switch component
 
 describe('Switch', () => {
   it('should toggle the switch', () => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Popper, PopperOwnProps } from '@mui/base/Popper';
 import styled from 'styled-components';
-import { Colors } from './Colors';
-import { Typography } from './Typography';
+import { Colors } from '../Colors';
+import Typography from './Typography';
 
-interface OwnProps extends Omit<PopperOwnProps, 'open'> {
+export interface TooltipProps extends Omit<PopperOwnProps, 'open'> {
   tip: React.ReactNode;
   children: React.ReactElement;
   open?: boolean;
@@ -35,7 +35,7 @@ const TooltipContent = styled.div`
   }
 `;
 
-export const Tooltip: React.FC<OwnProps> = ({
+const Tooltip: React.FC<TooltipProps> = ({
   tip,
   children,
   placement = 'top',
@@ -97,3 +97,5 @@ export const Tooltip: React.FC<OwnProps> = ({
     </React.Fragment>
   );
 };
+
+export default Tooltip;

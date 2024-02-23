@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Portal, PortalProps } from '@mui/base';
 import Icon from './Icon';
-import { Colors } from './Colors';
-import { StatusType } from './utils/useStatus';
-import { hexToRGBA } from './utils/hexToRGBA';
-import { Typography } from './Typography';
+import { Colors } from '../Colors';
+import { StatusType } from '../utils/useStatus';
+import hexToRGBA from '../utils/hexToRGBA';
+import Typography from './Typography';
+
+export interface AlertProps extends PortalProps {
+  status: Exclude<StatusType, 'inactive' | 'label'>;
+  message: string | React.ReactNode;
+}
+
+interface Alert {
+  $status: Exclude<StatusType, 'inactive' | 'label'>;
+}
 
 const AlertColors = {
   error: Colors.error,
@@ -14,11 +23,7 @@ const AlertColors = {
   monoBlack: Colors.monoBlack,
 };
 
-interface AlertProps {
-  $status: Exclude<StatusType, 'inactive' | 'label'>;
-}
-
-const StyledAlert = styled.div<AlertProps>`
+const StyledAlert = styled.div<Alert>`
   position: relative;
   padding: 16px;
   padding-right: 48px;
@@ -43,13 +48,7 @@ const CloseIconContainer = styled.div`
   cursor: pointer;
 `;
 
-// Extending AlertsProps to include PortalProps for flexibility
-interface AlertsProps extends PortalProps {
-  status: Exclude<StatusType, 'inactive' | 'label'>;
-  message: string | React.ReactNode;
-}
-
-const Alerts: React.FC<AlertsProps> = ({
+const Alerts: React.FC<AlertProps> = ({
   container = document.body,
   status = 'notification',
   message,

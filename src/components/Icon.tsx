@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors } from './Colors';
+import { Colors } from '../Colors';
 
 export type IconProps = {
   variant: IconVariant;

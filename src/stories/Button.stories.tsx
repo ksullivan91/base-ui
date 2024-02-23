@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AlternativeButton, PrimaryButton, SecondaryButton } from '../Buttons';
+import {
+  AlternativeButton,
+  PrimaryButton,
+  SecondaryButton,
+} from '../components/Button';
 import { JSX } from 'react/jsx-runtime';
 import styled from 'styled-components';
 

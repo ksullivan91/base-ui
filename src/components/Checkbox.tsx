@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Colors } from './Colors';
+import { Colors } from '../Colors';
 import Icon from './Icon';
-import { Typography } from './Typography';
+import Typography from './Typography';
 
-interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 

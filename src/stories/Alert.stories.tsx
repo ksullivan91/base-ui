@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Alerts from '../Alert';
+import Alerts from '../components/Alert';
 import React from 'react';
 import { StatusType } from '../utils/useStatus';
 import { ConditionalPortalWrapper } from '../utils/useConditionalPortal';

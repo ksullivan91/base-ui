@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Typography } from '../Typography';
+import Typography from '../components/Typography';
 import { JSX } from 'react/jsx-runtime';
 import styled from 'styled-components';
 

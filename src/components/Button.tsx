@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Button as ButtonBase, ButtonOwnProps } from '@mui/base/Button';
-import { Typography } from './Typography';
-import { Colors } from './Colors';
+import Typography from './Typography';
+import { Colors } from '../Colors';
+
+export interface ButtonProps extends ButtonOwnProps {
+  variant?: 'primary' | 'alternative' | 'secondary';
+}
 
 const ButtonStyles = css`
   cursor: pointer;
@@ -93,7 +97,7 @@ const StyledSecondaryButton = styled(ButtonBase)`
   }
 `;
 
-export const PrimaryButton: React.FC<ButtonOwnProps> = (props) => (
+export const PrimaryButton: React.FC<ButtonProps> = (props) => (
   <StyledPrimaryButton {...props}>
     <Typography variant='label' color='#fff'>
       {props.children}
@@ -101,7 +105,7 @@ export const PrimaryButton: React.FC<ButtonOwnProps> = (props) => (
   </StyledPrimaryButton>
 );
 
-export const AlternativeButton: React.FC<ButtonOwnProps> = (props) => (
+export const AlternativeButton: React.FC<ButtonProps> = (props) => (
   <StyledAlternativeButton {...props}>
     <Typography variant='label' color='#fff'>
       {props.children}
@@ -109,10 +113,23 @@ export const AlternativeButton: React.FC<ButtonOwnProps> = (props) => (
   </StyledAlternativeButton>
 );
 
-export const SecondaryButton: React.FC<ButtonOwnProps> = (props) => (
+export const SecondaryButton: React.FC<ButtonProps> = (props) => (
   <StyledSecondaryButton {...props}>
     <Typography variant='label' color={Colors.monoBlack}>
       {props.children}
     </Typography>
   </StyledSecondaryButton>
 );
+
+const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props }) => {
+  switch (variant) {
+    case 'alternative':
+      return <AlternativeButton {...props} />;
+    case 'secondary':
+      return <SecondaryButton {...props} />;
+    default:
+      return <PrimaryButton {...props} />;
+  }
+};
+
+export default Button;

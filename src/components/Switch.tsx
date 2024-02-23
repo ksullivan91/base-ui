@@ -1,15 +1,16 @@
 import { useSwitch } from '@mui/base/useSwitch';
 import { SwitchProps as MUISwitchProps } from '@mui/base/Switch';
 import styled from 'styled-components';
-import { Colors } from './Colors';
-import { Typography } from './Typography';
+import { Colors } from '../Colors';
+import Typography from './Typography';
 
-interface LabelProps {
-  label?: string;
-}
-type SwitchProps = MUISwitchProps &
+export type SwitchProps = MUISwitchProps &
   React.InputHTMLAttributes<HTMLInputElement> &
   LabelProps;
+
+export interface LabelProps {
+  label?: string;
+}
 
 const BasicSwitchRoot = styled('span')`
   box-sizing: border-box;

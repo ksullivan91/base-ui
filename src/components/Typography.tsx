@@ -64,7 +64,7 @@ const StyledTypography = styled.span<{
   ${(props) => variantStyles[props.variant]}
 `;
 
-export const Typography: React.FC<TypographyProps> = ({
+const Typography: React.FC<TypographyProps> = ({
   variant,
   children,
   className,
@@ -81,3 +81,5 @@ export const Typography: React.FC<TypographyProps> = ({
     </StyledTypography>
   );
 };
+
+export default Typography;

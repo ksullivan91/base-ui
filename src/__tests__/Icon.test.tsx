@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Icon, { IconVariant } from '../Icon';
+import Icon, { IconVariant } from '../components/Icon';
 
 // Directly mock the Icon module inside jest.mock
 jest.mock('../Icon', () => ({

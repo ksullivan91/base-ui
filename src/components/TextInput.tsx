@@ -1,16 +1,17 @@
 import React from 'react';
 import { Input, inputClasses, InputOwnProps } from '@mui/base/Input';
 import styled from 'styled-components';
-import { Colors } from './Colors';
-import { Status, StatusType } from './utils/useStatus';
+import { Colors } from '../Colors';
+import { Status, StatusType } from '../utils/useStatus';
+
+export type TextInputProps = InputOwnProps &
+  React.InputHTMLAttributes<HTMLInputElement> &
+  InputStatusProps;
 
 interface InputStatusProps {
   labelText?: string;
   status?: Status;
 }
-type TextInputProps = InputOwnProps &
-  React.InputHTMLAttributes<HTMLInputElement> &
-  InputStatusProps;
 
 const StyledInputContainer = styled.div<{ status?: Status }>`
   position: relative;

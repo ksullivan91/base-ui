@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Checkbox from '../Checkbox';
+import Checkbox from '../components/Checkbox';
 import styled from 'styled-components';
 
 const meta: Meta<typeof Checkbox> = {

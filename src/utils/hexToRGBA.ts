@@ -4,7 +4,7 @@
  * @param alpha - The alpha (opacity) level, from 0 to 1.
  * @returns The RGBA color string (e.g., "rgba(255, 0, 0, 0.1)").
  */
-export const hexToRGBA = (hex: string, alpha: number = 1): string => {
+const hexToRGBA = (hex: string, alpha: number = 1): string => {
   // Remove the hash at the start if it's there
   hex = hex.replace(/^#/, '');
 
@@ -24,3 +24,4 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
 
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
+export default hexToRGBA;

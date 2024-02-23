@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Icon, { IconProps, IconVariant, IconVariants } from '../Icon'; // Adjust import path as necessary
+import Icon, { IconProps, IconVariant, IconVariants } from '../components/Icon'; // Adjust import path as necessary
 import styled from 'styled-components';
 
 const meta: Meta = {

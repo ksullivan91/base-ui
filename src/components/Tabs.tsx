@@ -4,10 +4,13 @@ import {
   TabPanel as MUITabPanel,
   Tab as MUITab,
   TabsList as MUITabsList,
+  TabProps as MUITabProps,
 } from '@mui/base';
-import { Colors } from './Colors';
+import { Colors } from '../Colors';
 
-export const Tabs = styled(MUITabs)``;
+export type TabsProps = MUITabProps;
+
+const Tabs = styled(MUITabs)``;
 
 export const TabPanel = styled(MUITabPanel)``;
 
@@ -48,3 +51,5 @@ export const Tab = styled(MUITab)`
     color: ${Colors.monoGrayTwo};
   }
 `;
+
+export default Tabs;

@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tooltip } from '../Tooltip'; // Adjust the import path as necessary
+import Tooltip from '../components/Tooltip';
 import styled from 'styled-components';
-import { AlternativeButton, PrimaryButton, SecondaryButton } from '../Buttons';
+import {
+  AlternativeButton,
+  PrimaryButton,
+  SecondaryButton,
+} from '../components/Button';
 
 const meta: Meta = {
   title: 'Example/Tooltip',
