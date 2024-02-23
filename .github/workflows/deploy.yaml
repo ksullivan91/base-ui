@@ -16,6 +16,7 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm test
-      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
-        with:
-          path: dist/storybook
+      - name: Build and Deploy Storybook
+        - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
+          with:
+            path: dist/storybook
