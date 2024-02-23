@@ -51,7 +51,7 @@ BaseUI provides a suite of interactive and accessible components.
 ```
 ## Alert
 ```jsx
-<Alert severity="success" message="Operation successful!" />
+<Alert status="success" message="Operation successful!" />
 ```
 More Components
 Explore more components in our Storybook.
