@@ -50,8 +50,8 @@ interface AlertsProps extends PortalProps {
 }
 
 const Alerts: React.FC<AlertsProps> = ({
-  container,
-  status,
+  container = document.body,
+  status = 'notification',
   message,
   ...portalProps
 }) => {
@@ -99,7 +99,5 @@ const Alerts: React.FC<AlertsProps> = ({
     </Portal>
   );
 };
-
-Alerts.defaultProps = { status: 'notification', container: document.body };
 
 export default Alerts;

@@ -540,13 +540,13 @@ export const variants: IconVariant[] = Object.keys(
 
 export type IconVariant = keyof typeof IconVariants;
 
-const Icon: React.FC<IconProps> = ({ variant, ...props }) => {
+const Icon: React.FC<IconProps> = ({
+  variant,
+  stroke = Colors.monoGrayFour,
+  ...props
+}) => {
   const SvgIcon = IconVariants[variant] || null;
   return SvgIcon ? <SvgIcon variant={variant} {...props} /> : null;
-};
-
-Icon.defaultProps = {
-  stroke: Colors.monoGrayFour,
 };
 
 export default Icon;
