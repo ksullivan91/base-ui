@@ -542,7 +542,7 @@ export type IconVariant = keyof typeof IconVariants;
 
 const Icon: React.FC<IconProps> = ({
   variant,
-  stroke = Colors.monoBlack,
+  stroke = Colors.monoGrayFour,
   ...props
 }) => {
   const SvgIcon = IconVariants[variant] || null;
