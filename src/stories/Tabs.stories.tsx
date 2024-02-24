@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react';
 import styled from 'styled-components';
-import { Tab, Tabs, TabsList } from '../components/Tabs';
+import Tabs, { Tab, TabsList } from '../components/Tabs';
 import * as React from 'react';
 
 const Container = styled.div`
