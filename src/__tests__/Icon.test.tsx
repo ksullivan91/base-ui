@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import Icon, { IconVariant } from '../components/Icon';
 
 // Directly mock the Icon module inside jest.mock
-jest.mock('../Icon', () => ({
+jest.mock('../Components/Icon', () => ({
   __esModule: true, // This is necessary for mocking modules with default and named exports
   default: jest
     .fn()
