@@ -37,6 +37,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^7.6.16",
     "@storybook/addon-essentials": "^7.6.16",
+    "@storybook/addon-google-analytics": "^6.2.9",
     "@storybook/addon-interactions": "^7.6.16",
     "@storybook/addon-links": "^7.6.16",
     "@storybook/addon-onboarding": "^1.0.11",
