@@ -33,21 +33,18 @@ const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
   height: 24px;
   background: ${({ checked }) => (checked ? Colors.pink : 'transparent')};
   border-radius: 4px;
-  transition: all 150ms;
+  transition: background-color 150ms;
   border: 1px solid ${Colors.monoGrayTwo};
+  &:focus + & {
+    outline: ${Colors.highlight} auto 5px;
+  }
+  & > svg {
+    fill: none !important;
+    visibility: hidden;
+  }
   ${HiddenCheckbox}:focus + & {
     outline: ${Colors.highlight} auto 5px;
   }
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background: ${Colors.monoGrayTwo};
-      border-color: ${Colors.monoGrayTwo};
-      & svg {
-        fill: ${Colors.monoGrayFour};
-      }
-    `}
 
   ${({ checked }) =>
     checked &&
@@ -58,10 +55,15 @@ const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
       }
     `}
 
-  & > svg {
-    visibility: hidden;
-    fill: ${Colors.monoWhite}; // Assuming the check icon is a filled shape
-  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background: ${Colors.monoGrayTwo};
+      border-color: ${Colors.monoGrayTwo};
+      & svg {
+        fill: ${Colors.monoGrayFour};
+      }
+    `}
 `;
 
 const CheckboxLabel = styled.label`
@@ -92,12 +94,14 @@ const Checkbox: React.FC<CheckboxProps> = ({
           disabled={disabled}
           aria-checked={checked}
           aria-disabled={disabled}
+          tabIndex={0}
           {...props}
         />
         <StyledCheckbox
           checked={checked}
           disabled={disabled}
           aria-hidden='true'
+          tabIndex={-1}
         >
           <Icon variant='check' stroke={Colors.monoWhite} />
         </StyledCheckbox>

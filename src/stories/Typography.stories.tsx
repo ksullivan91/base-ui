@@ -4,7 +4,7 @@ import { JSX } from 'react/jsx-runtime';
 import styled from 'styled-components';
 
 const meta: Meta = {
-  title: 'Example/Typography',
+  title: 'Components/Typography',
   component: Typography,
   parameters: {
     layout: 'centered',

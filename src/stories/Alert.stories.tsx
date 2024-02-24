@@ -21,7 +21,7 @@ export const Alert: React.FC<{
 };
 
 const meta: Meta<typeof Alerts> = {
-  title: 'Example/Alerts',
+  title: 'Components/Alerts',
   component: Alerts,
   tags: ['autodocs'],
   parameters: {

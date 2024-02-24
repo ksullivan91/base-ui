@@ -80,7 +80,8 @@ const StyledSecondaryButton = styled(ButtonBase)`
   color: ${Colors.monoBlack};
   border: 1px solid #b5b5b5;
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 1px solid #252525;
     background-color: #fff;
   }
@@ -91,7 +92,8 @@ const StyledSecondaryButton = styled(ButtonBase)`
     label {
       color: #b5b5b580;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       border: 1px solid #b5b5b580;
     }
   }

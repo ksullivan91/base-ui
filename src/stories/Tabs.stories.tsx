@@ -34,7 +34,7 @@ export const StoryBookTabs = () => {
 };
 
 const meta: Meta = {
-  title: 'Example/Tabs',
+  title: 'Components/Tabs',
   component: StoryBookTabs,
   parameters: {
     layout: 'centered',

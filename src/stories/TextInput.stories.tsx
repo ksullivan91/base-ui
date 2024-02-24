@@ -3,7 +3,7 @@ import TextInput from '../components/TextInput';
 import styled from 'styled-components';
 
 const meta: Meta = {
-  title: 'Example/TextInput',
+  title: 'Components/TextInput',
   component: TextInput,
   tags: ['autodocs'],
   parameters: {

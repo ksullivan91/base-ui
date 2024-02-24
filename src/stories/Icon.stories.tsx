@@ -3,7 +3,7 @@ import Icon, { IconProps, IconVariant, IconVariants } from '../components/Icon';
 import styled from 'styled-components';
 
 const meta: Meta = {
-  title: 'Example/Icon',
+  title: 'Components/Icon',
   component: Icon,
   parameters: {
     layout: 'centered',

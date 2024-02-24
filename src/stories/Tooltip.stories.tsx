@@ -9,7 +9,7 @@ import {
 } from '../components/Button';
 
 const meta: Meta = {
-  title: 'Example/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   parameters: {

@@ -4,7 +4,7 @@ import Switch from '../components/Switch';
 import styled from 'styled-components';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Example/Switch',
+  title: 'Components/Switch',
   component: Switch,
   tags: ['autodocs'],
   parameters: {

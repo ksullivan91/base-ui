@@ -4,7 +4,7 @@ import RadioGroup from '../components/RadioGroup';
 import styled from 'styled-components';
 
 const meta: Meta = {
-  title: 'Example/RadioGroup',
+  title: 'Components/RadioGroup',
   component: RadioGroup,
   tags: ['autodocs'],
   parameters: {

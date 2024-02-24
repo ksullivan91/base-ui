@@ -8,7 +8,7 @@ import { JSX } from 'react/jsx-runtime';
 import styled from 'styled-components';
 
 const meta: Meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: PrimaryButton,
   parameters: {
     layout: 'centered',
