@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Icon, { IconProps, IconVariant, IconVariants } from '../components/Icon'; // Adjust import path as necessary
+import Icon, { IconProps, IconVariant, IconVariants } from '../components/Icon';
 import styled from 'styled-components';
 
 const meta: Meta = {
@@ -33,20 +33,17 @@ const Container = styled.div`
 `;
 
 export const Variants: StoryObj<IconProps> = {
-  render: (_) => {
-    Object.entries(IconVariants).map(([key, _]) => console.log(key));
-    return (
-      <Container>
-        {Object.entries(IconVariants).map(([key, _]) => {
-          return (
-            <Icon
-              key={key}
-              variant={key as IconVariant}
-              onClick={() => navigator.clipboard.writeText(key)}
-            />
-          );
-        })}
-      </Container>
-    );
-  },
+  render: () => (
+    <Container>
+      {Object.entries(IconVariants).map(([key, _]) => {
+        return (
+          <Icon
+            key={key}
+            variant={key as IconVariant}
+            onClick={() => navigator.clipboard.writeText(key)}
+          />
+        );
+      })}
+    </Container>
+  ),
 };
