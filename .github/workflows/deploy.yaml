@@ -13,9 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install modules
-      run: npm install
+      run: yarn install
     - name: Run tests
-      run: npm test
+      run: yarn test
   deploy:
     runs-on: ubuntu-latest
     steps:
