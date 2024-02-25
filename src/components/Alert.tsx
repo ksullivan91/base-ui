@@ -64,9 +64,9 @@ const Alerts: React.FC<AlertProps> = ({
     <Portal {...portalProps} container={container}>
       <StyledAlert
         $status={status}
-        role='alert'
-        aria-live='assertive'
-        aria-atomic='true'
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
       >
         <Icon
           variant={
@@ -78,21 +78,21 @@ const Alerts: React.FC<AlertProps> = ({
           }
           stroke={AlertColors[status] || AlertColors.notification}
         />
-        <Typography variant='p' color={AlertColors[status]}>
+        <Typography variant="p" color={AlertColors[status]}>
           {message}
         </Typography>
         <CloseIconContainer
           onClick={handleClose}
-          role='button'
+          role="button"
           tabIndex={0}
-          onKeyDown={(event) => {
+          onKeyDown={event => {
             if (event.key === 'Enter' || event.key === ' ') {
               handleClose();
             }
           }}
-          aria-label='Close alert'
+          aria-label="Close alert"
         >
-          <Icon variant='cross' stroke={AlertColors.monoBlack} />
+          <Icon variant="cross" color={AlertColors.monoBlack} />
         </CloseIconContainer>
       </StyledAlert>
     </Portal>

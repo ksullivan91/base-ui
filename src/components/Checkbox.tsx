@@ -115,7 +115,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           aria-hidden="true"
           tabIndex={-1}
         >
-          <Icon variant="check" stroke={Colors.monoWhite} />
+          <Icon variant="check" color={Colors.monoWhite} />
         </StyledCheckbox>
         <Typography variant="p" color={Colors.monoGrayFour}>
           {label}

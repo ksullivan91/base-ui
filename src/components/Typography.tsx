@@ -54,14 +54,14 @@ const variantStyles = {
 };
 
 const StyledTypography = styled.span<{
-  variant: TypographyProps['variant'];
+  $variant: TypographyProps['variant'];
   $customColor?: string;
 }>`
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   color: ${({ $customColor }) => $customColor || '#252525'};
-  ${(props) => variantStyles[props.variant]}
+  ${props => variantStyles[props.$variant]}
 `;
 
 const Typography: React.FC<TypographyProps> = ({
@@ -73,7 +73,7 @@ const Typography: React.FC<TypographyProps> = ({
   return (
     <StyledTypography
       as={variant}
-      variant={variant}
+      $variant={variant}
       className={className}
       $customColor={color}
     >
