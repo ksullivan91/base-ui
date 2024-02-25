@@ -60,6 +60,7 @@ const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
     css`
       background: ${Colors.monoGrayTwo};
       border-color: ${Colors.monoGrayTwo};
+      cursor: not-allowed;
       & svg {
         fill: ${Colors.monoGrayFour};
       }
@@ -100,12 +101,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
         <StyledCheckbox
           checked={checked}
           disabled={disabled}
-          aria-hidden='true'
+          aria-hidden="true"
           tabIndex={-1}
         >
-          <Icon variant='check' stroke={Colors.monoWhite} />
+          <Icon variant="check" stroke={Colors.monoWhite} />
         </StyledCheckbox>
-        <Typography variant='p' color={Colors.monoGrayFour}>
+        <Typography variant="p" color={Colors.monoGrayFour}>
           {label}
         </Typography>
       </CheckboxLabel>

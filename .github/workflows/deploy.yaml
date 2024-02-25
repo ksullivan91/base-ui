@@ -12,10 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Install modules
-      run: yarn install
-    - name: Run tests
-      run: yarn test
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        registry-url: 'https://registry.npmjs.org'
+    - run: yarn install
+    - run: yarn test
   deploy:
     runs-on: ubuntu-latest
     steps:
