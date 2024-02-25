@@ -2,7 +2,10 @@ import React from 'react';
 // Define the structure for a single checkbox's state
 export interface CheckboxState {
   checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  disabled?: boolean;
+  label?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 // Define the hook's return type
@@ -12,17 +15,19 @@ export interface UseCheckboxesReturn {
 
 // Define the hook itself
 export function useCheckboxes(defaultStates: {
-  [key: string]: boolean;
+  [key: string]: CheckboxState;
 }): UseCheckboxesReturn {
-  const [states, setStates] = React.useState<{ [key: string]: boolean }>(
-    defaultStates
-  );
+  const [states, setStates] =
+    React.useState<UseCheckboxesReturn>(defaultStates);
 
   const createChangeHandler = React.useCallback(
     (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setStates((prevStates) => ({
+      setStates(prevStates => ({
         ...prevStates,
-        [key]: event.target.checked,
+        [key]: {
+          ...prevStates[key],
+          checked: event.target.checked,
+        },
       }));
     },
     []
@@ -32,8 +37,11 @@ export function useCheckboxes(defaultStates: {
   const checkboxes = Object.keys(states).reduce<UseCheckboxesReturn>(
     (acc, key) => {
       acc[key] = {
-        checked: states[key],
-        onChange: createChangeHandler(key),
+        value: states[key].value,
+        label: states[key].label,
+        disabled: states[key].disabled,
+        checked: states[key].checked,
+        onChange: states[key].onChange ?? createChangeHandler(key),
       };
       return acc;
     },

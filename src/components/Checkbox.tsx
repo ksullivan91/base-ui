@@ -12,17 +12,23 @@ export interface CheckboxProps
 const CheckboxContainer = styled.div`
   display: inline-flex;
   align-items: center;
-  cursor: pointer;
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
-opacity: 0;
-position: absolute;
-width: 30px;
-height: 30px;
-z-index: 100;
-cursor: pointer;
-}
+const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<{
+  disabled?: boolean;
+}>`
+  opacity: 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  cursor: pointer;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+    `}
+  }
 `;
 
 const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
@@ -67,12 +73,17 @@ const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
     `}
 `;
 
-const CheckboxLabel = styled.label`
+const CheckboxLabel = styled.label<{ disabled?: boolean }>`
   position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;
 
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -87,7 +98,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <CheckboxContainer>
-      <CheckboxLabel htmlFor={id}>
+      <CheckboxLabel htmlFor={id} disabled={disabled}>
         <HiddenCheckbox
           id={id}
           checked={checked}

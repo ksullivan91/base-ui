@@ -21,29 +21,29 @@ const Container = styled.div`
 `;
 
 export const DefaultCheckbox: StoryObj<typeof Checkbox> = {
-  render: (args) => {
+  render: args => {
     const checkboxes = useCheckboxes({
-      checkbox1: true,
-      checkbox2: false,
-      checkbox3: true,
-      checkbox4: false,
+      checkbox1: { checked: true, value: 'checked', label: 'Default Checked' },
+      checkbox2: { checked: false, value: 'unchecked', label: 'Unchecked' },
+      checkbox3: {
+        checked: true,
+        disabled: true,
+        value: 'disabled_unchecked',
+        label: 'Disabled Unchecked',
+      },
+      checkbox4: {
+        checked: false,
+        disabled: true,
+        value: 'disabled',
+        label: 'Disabled',
+      },
     });
     return (
       <Container>
-        <Checkbox {...args} {...checkboxes.checkbox1} value='Unchecked' />
-        <Checkbox {...args} {...checkboxes.checkbox2} value='Checked' />
-        <Checkbox
-          {...args}
-          {...checkboxes.checkbox3}
-          value='Disabled'
-          disabled
-        />
-        <Checkbox
-          {...args}
-          {...checkboxes.checkbox4}
-          value='Disabled'
-          disabled
-        />
+        <Checkbox {...args} {...checkboxes.checkbox1} />
+        <Checkbox {...args} {...checkboxes.checkbox2} />
+        <Checkbox {...args} {...checkboxes.checkbox3} />
+        <Checkbox {...args} {...checkboxes.checkbox4} />
       </Container>
     );
   },
@@ -53,17 +53,17 @@ export const DefaultCheckbox: StoryObj<typeof Checkbox> = {
 };
 
 export const CheckboxWithLabel: StoryObj<typeof Checkbox> = {
-  render: (args) => {
+  render: args => {
     const checkboxes = useCheckboxes({
-      checkbox: true,
+      checkbox: {
+        checked: true,
+        value: 'checked',
+        label: 'Checkbox with label',
+      },
     });
     return (
       <Container>
-        <Checkbox
-          {...args}
-          {...checkboxes.checkbox}
-          label='Checkbox with label'
-        />
+        <Checkbox {...args} {...checkboxes.checkbox} />
       </Container>
     );
   },
@@ -71,9 +71,9 @@ export const CheckboxWithLabel: StoryObj<typeof Checkbox> = {
 };
 
 export const DisabledCheckbox: StoryObj<typeof Checkbox> = {
-  render: (args) => (
+  render: args => (
     <Container>
-      <Checkbox {...args} value='Disabled' disabled />
+      <Checkbox {...args} value="Disabled" disabled />
     </Container>
   ),
   args: {},
