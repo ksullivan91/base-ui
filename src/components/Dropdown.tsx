@@ -89,7 +89,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ menuItems, selected }) => {
 
   return (
     <div ref={hoverRef} data-testid="dropdown-wrapper">
-      <MUIDropdown open={true}>
+      <MUIDropdown>
         <StyledButton aria-haspopup="true" aria-expanded={open}>
           <Typography variant={'h4'}>{selectedMenuItem}</Typography>
           <StyledIcon
