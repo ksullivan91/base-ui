@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { MenuItemProps } from '../components/Dropdown';
 
+interface UseDropdownProps {
+  menuItems: MenuItemProps[];
+  defaultSelectedOption?: string;
+  label?: string;
+}
+
 interface UseDropdownReturn {
   selectedMenuItem: string;
   open: boolean;
   handleMenuItemClick: (item: MenuItemProps) => void;
 }
 
-export const useDropdown = (
-  initialItems: MenuItemProps[],
-  initialSelected?: string
-): UseDropdownReturn => {
+export function useDropdown(opts: UseDropdownProps): UseDropdownReturn {
   const [selectedMenuItem, setSelectedMenuItem] = useState(
-    initialSelected || initialItems[0]?.label || ''
+    opts.defaultSelectedOption || opts.label || opts.menuItems[0]?.label || ''
   );
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,4 +29,6 @@ export const useDropdown = (
     open: isOpen,
     handleMenuItemClick,
   };
-};
+}
+
+export default useDropdown;

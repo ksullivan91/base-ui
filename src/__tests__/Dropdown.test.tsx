@@ -1,8 +1,19 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import Dropdown from '../components/Dropdown';
+import Dropdown, { MenuItemProps } from '../components/Dropdown';
 import { Colors } from '../Colors';
+import { useDropdown } from '../utils/useDropdown';
+
+const TestHookDropdown: React.FC<{ menuItems: MenuItemProps[] }> = ({
+  menuItems,
+}) => {
+  const { selectedMenuItem } = useDropdown({
+    menuItems,
+    label: 'Dropdown Label',
+  });
+  return <Dropdown selected={selectedMenuItem} menuItems={menuItems} />;
+};
 
 describe('Dropdown Component', () => {
   const menuItems = [
@@ -13,9 +24,18 @@ describe('Dropdown Component', () => {
 
   it('renders correctly with initial selected item', async () => {
     render(<Dropdown selected="Option 1" menuItems={menuItems} />);
+
+    expect(screen.getByRole('button')).toHaveTextContent('Option 1');
+  });
+
+  it('renders correctly with label', async () => {
+    const menuItems = [{ label: 'Option 1', value: 'option1' }];
+    render(<TestHookDropdown menuItems={menuItems} />);
+    expect(screen.getByRole('button')).toHaveTextContent('Dropdown Label');
+    const dropdownButton = screen.getByRole('button');
+    userEvent.click(dropdownButton);
     const option1 = await screen.findByRole('menuitem', { name: /option 1/i });
     expect(option1).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveTextContent('Option 1');
   });
 
   it('opens dropdown and displays menu items on click', async () => {
@@ -61,8 +81,6 @@ describe('Dropdown Component', () => {
     const option2 = await screen.findByText('Option 2');
     expect(option2.closest('li')).toHaveAttribute('aria-disabled', 'true');
     userEvent.click(option2);
-
-    // Assuming your handleItemClick prevents action on disabled items
-    expect(dropdownButton).toHaveTextContent('Option 1'); // Selected item should not change
+    expect(dropdownButton).toHaveTextContent('Option 1');
   });
 });

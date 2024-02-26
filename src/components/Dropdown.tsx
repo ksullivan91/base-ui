@@ -30,6 +30,9 @@ const StyledButton = styled(MenuButton)`
   &:focus {
     border-color: ${Colors.pink};
   }
+  &.base--expanded {
+    border-color: ${Colors.pink};
+  }
 `;
 
 const StyledMenu = styled(Menu)`
@@ -47,6 +50,9 @@ const StyledMenuItem = styled(MenuItem)<{ disabled?: boolean }>`
   list-style: none;
   padding: 6px 12px;
   cursor: pointer;
+  &:active {
+    background-color: ${Colors.monoGrayTwo};
+  }
   &:hover,
   &:focus {
     background-color: ${Colors.monoGrayOne};
@@ -55,11 +61,14 @@ const StyledMenuItem = styled(MenuItem)<{ disabled?: boolean }>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background: ${Colors.monoGrayTwo};
-      cursor: not-allowed;
+      background: ${Colors.monoGrayOne};
+      cursor: not-allowed !important;
+      small {
+        color: ${Colors.monoGrayThree} !important;
+      }
       &:hover,
       &:focus {
-        background-color: ${Colors.monoGrayTwo};
+        background-color: ${Colors.monoGrayOne};
         outline: 0;
       }
     `}
@@ -77,18 +86,24 @@ export type MenuItemProps = MUIMenuItemProps;
 export interface DropdownProps extends UseDropdownParameters {
   selected: string;
   menuItems: MenuItemProps[];
+  label?: string;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ menuItems, selected }) => {
-  const { selectedMenuItem, open, handleMenuItemClick } = useDropdown(
+export const Dropdown: React.FC<DropdownProps> = ({
+  menuItems,
+  selected,
+  label,
+}) => {
+  const { selectedMenuItem, open, handleMenuItemClick } = useDropdown({
     menuItems,
-    selected
-  );
+    defaultSelectedOption: selected,
+    label: label,
+  });
 
   const [hoverRef, isHovered] = useHover<HTMLDivElement>();
 
   return (
-    <div ref={hoverRef} data-testid="dropdown-wrapper">
+    <div ref={hoverRef} data-testid="dropdown-wrapper" tabIndex={-1}>
       <MUIDropdown>
         <StyledButton aria-haspopup="true" aria-expanded={open}>
           <Typography variant={'h4'}>{selectedMenuItem}</Typography>
@@ -106,7 +121,9 @@ export const Dropdown: React.FC<DropdownProps> = ({ menuItems, selected }) => {
               tabIndex={0}
               value={item.value}
               slotProps={{
-                root: { 'aria-disabled': item.disabled ? 'true' : 'false' },
+                root: {
+                  'aria-disabled': item.disabled ? 'true' : 'false',
+                },
               }}
             >
               <Typography variant={'small'} color={Colors.monoGrayFour}>
