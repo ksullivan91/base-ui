@@ -12,7 +12,7 @@ import { UseDropdownParameters } from '@mui/base';
 import Icon from './Icon';
 import Typography from './Typography';
 import { useDropdown } from '../utils/useDropdown';
-import { useHover } from '../utils/useHover';
+import useHover from '../utils/useHover';
 
 const StyledButton = styled(MenuButton)`
   padding: 6px 12px;

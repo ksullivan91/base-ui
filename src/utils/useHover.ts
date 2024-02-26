@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export const useHover = <T extends HTMLElement>(): [
-  React.RefObject<T>,
-  boolean
-] => {
+function useHover<T extends HTMLElement>(): [React.RefObject<T>, boolean] {
   const [isHovered, setHovered] = useState<boolean>(false);
   const hoverRef = useRef<T>(null);
   const handleMouseEnter = useCallback(() => setHovered(true), []);
@@ -27,4 +24,5 @@ export const useHover = <T extends HTMLElement>(): [
   }, [handleMouseEnter, handleMouseLeave]);
 
   return [hoverRef, isHovered];
-};
+}
+export default useHover;

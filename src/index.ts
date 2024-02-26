@@ -10,7 +10,11 @@ export { default as Tabs, TabPanel, TabsList } from './components/Tabs';
 export { default as TextInput } from './components/TextInput';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Typography } from './components/Typography';
+export { default as Dropdown } from './components/Dropdown';
 
 export { default as useStatus } from './utils/useStatus';
 export { default as useConditionalPortal } from './utils/useConditionalPortal';
 export { default as hexToRGBA } from './utils/hexToRGBA';
+export { default as useDropdown } from './utils/useDropdown';
+export { default as useHover } from './utils/useHover';
+export { default as useCheckboxes } from './utils/useCheckbox';
