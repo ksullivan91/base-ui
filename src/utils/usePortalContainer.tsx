@@ -1,6 +1,6 @@
 import { cloneElement, useEffect, useRef, useState } from 'react';
 
-function useConditionalPortal<T extends HTMLElement>(): [
+function usePortalContainer<T extends HTMLElement>(): [
   React.RefObject<T>,
   boolean
 ] {
@@ -13,14 +13,15 @@ function useConditionalPortal<T extends HTMLElement>(): [
 
   return [ref, isReady];
 }
-interface ConditionalPortalWrapperProps {
+interface PortalContainerProps {
   children: React.ReactNode;
 }
 
-export const ConditionalPortalWrapper: React.FC<
-  ConditionalPortalWrapperProps
-> = ({ children, ...props }) => {
-  const [containerRef, isPortalReady] = useConditionalPortal<HTMLDivElement>();
+export const PortalContainer: React.FC<PortalContainerProps> = ({
+  children,
+  ...props
+}) => {
+  const [containerRef, isPortalReady] = usePortalContainer<HTMLDivElement>();
 
   return (
     <>
@@ -34,4 +35,4 @@ export const ConditionalPortalWrapper: React.FC<
   );
 };
 
-export default useConditionalPortal;
+export default usePortalContainer;

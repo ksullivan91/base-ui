@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
-import { Button as ButtonBase, ButtonOwnProps } from '@mui/base/Button';
+import {
+  Button as ButtonBase,
+  ButtonProps as MUIButtonProps,
+} from '@mui/base/Button';
 import Typography from './Typography';
 import { Colors } from '../Colors';
 
-export interface ButtonProps extends ButtonOwnProps {
+export interface ButtonProps extends MUIButtonProps {
   variant?: 'primary' | 'alternative' | 'secondary';
 }
 
@@ -99,25 +102,25 @@ const StyledSecondaryButton = styled(ButtonBase)`
   }
 `;
 
-export const PrimaryButton: React.FC<ButtonProps> = (props) => (
+export const PrimaryButton: React.FC<ButtonProps> = props => (
   <StyledPrimaryButton {...props}>
-    <Typography variant='label' color='#fff'>
+    <Typography variant="label" color="#fff">
       {props.children}
     </Typography>
   </StyledPrimaryButton>
 );
 
-export const AlternativeButton: React.FC<ButtonProps> = (props) => (
+export const AlternativeButton: React.FC<ButtonProps> = props => (
   <StyledAlternativeButton {...props}>
-    <Typography variant='label' color='#fff'>
+    <Typography variant="label" color="#fff">
       {props.children}
     </Typography>
   </StyledAlternativeButton>
 );
 
-export const SecondaryButton: React.FC<ButtonProps> = (props) => (
+export const SecondaryButton: React.FC<ButtonProps> = props => (
   <StyledSecondaryButton {...props}>
-    <Typography variant='label' color={Colors.monoBlack}>
+    <Typography variant="label" color={Colors.monoBlack}>
       {props.children}
     </Typography>
   </StyledSecondaryButton>

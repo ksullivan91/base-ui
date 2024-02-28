@@ -17,3 +17,31 @@ export const Colors = {
   monoWhite: '#FFFFFF',
   highlight: '#8CE0F3',
 };
+
+export type ColorVariant = keyof typeof Colors;
+
+export type DarkColorVariantC = Exclude<
+  ColorVariant,
+  'lightPink' | 'lightPurple' | 'monoWhite' | 'monoGrayOne' | 'monoGrayTwo'
+>;
+
+export type LightColorVariant = Exclude<ColorVariant, DarkColorVariantC>;
+
+export const isDarkColorVariant = (
+  variant: ColorVariant
+): variant is DarkColorVariantC => {
+  return (
+    variant !== 'lightPink' &&
+    variant !== 'lightPurple' &&
+    variant !== 'monoWhite' &&
+    variant !== 'monoGrayOne' &&
+    variant !== 'monoGrayTwo' &&
+    variant !== 'highlight'
+  );
+};
+
+export const isLightColorVariant = (
+  variant: ColorVariant
+): variant is LightColorVariant => {
+  return !isDarkColorVariant(variant);
+};

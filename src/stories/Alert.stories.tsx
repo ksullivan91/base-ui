@@ -2,21 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Alerts from '../components/Alert';
 import React from 'react';
 import { StatusType } from '../utils/useStatus';
-import { ConditionalPortalWrapper } from '../utils/useConditionalPortal';
+import { PortalContainer } from '../utils/usePortalContainer';
 
 export const Alert: React.FC<{
   status: Exclude<StatusType, 'inactive' | 'label'>;
   message: string;
-}> = (props) => {
+}> = props => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
-    <ConditionalPortalWrapper {...props}>
+    <PortalContainer {...props}>
       <Alerts
         container={containerRef.current}
         status={props.status}
         message={props.message}
       />
-    </ConditionalPortalWrapper>
+    </PortalContainer>
   );
 };
 
@@ -36,25 +36,25 @@ const meta: Meta<typeof Alerts> = {
 export default meta;
 
 export const SuccessAlert: StoryObj<typeof Alerts> = {
-  render: (args) => (
-    <Alert {...args} status='success' message='This is a success alert!' />
+  render: args => (
+    <Alert {...args} status="success" message="This is a success alert!" />
   ),
   args: {},
 };
 
 export const ErrorAlert: StoryObj<typeof Alerts> = {
-  render: (args) => (
-    <Alert {...args} status='error' message='This is an error alert!' />
+  render: args => (
+    <Alert {...args} status="error" message="This is an error alert!" />
   ),
   args: {},
 };
 
 export const NotificationAlert: StoryObj<typeof Alerts> = {
-  render: (args) => (
+  render: args => (
     <Alert
       {...args}
-      status='notification'
-      message='This is a notification alert!'
+      status="notification"
+      message="This is a notification alert!"
     />
   ),
   args: {},
