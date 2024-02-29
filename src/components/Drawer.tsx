@@ -36,7 +36,7 @@ const Drawer: React.FC = () => {
     <>
       <button onClick={toggleDrawer}>Toggle Drawer</button>
       <DrawerBackdrop isOpen={isOpen} onClick={toggleDrawer} />
-      <DrawerContainer isOpen={isOpen}>
+      <DrawerContainer isOpen={isOpen} data-testid="Drawer">
         {/* Add your drawer content here */}
       </DrawerContainer>
     </>
