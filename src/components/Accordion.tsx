@@ -1,6 +1,11 @@
 import React, { useState, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Colors, Icon, Typography } from '..';
+
+const slideInAnimation = keyframes`
+  from {display: none; opacity: 0.1; transform: translateY(-10px);}
+  to { display: block; transform: translateY(0px); opacity: 1;}
+`;
 
 const AccordionContainer = styled.div`
   border-radius: 3px;
@@ -24,6 +29,7 @@ const AccordionSummaryButton = styled.button`
   align-items: center;
   position: relative;
   z-index: 1;
+
   h5 {
     display: flex;
     svg {
@@ -37,14 +43,16 @@ const AccordionSummaryButton = styled.button`
 
 const AccordionDetailsContainer = styled.div`
   padding: 10px;
-  visibility: hidden;
-  transition: all 0.1s ease-in-out;
   transform: translateY(-10px);
-  opacity: 0.1;
   position: relative;
+  display: none;
+  opacity: 0;
   z-index: 0;
+  animation: ${slideInAnimation} 0.1s ease-in-out;
+  animation-direction: reverse;
   &.is-open {
-    visibility: visible;
+    animation: ${slideInAnimation} 0.1s ease-in-out;
+    display: block;
     opacity: 1;
     transform: translateY(0px);
   }

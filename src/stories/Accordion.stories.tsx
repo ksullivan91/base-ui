@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Accordion, AccordionItem } from '../components/Accordion';
+import Accordion, { AccordionItem } from '../components/Accordion';
 
 export default {
   title: 'Components/Accordion',
