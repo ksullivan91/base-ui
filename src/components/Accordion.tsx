@@ -11,15 +11,10 @@ const AccordionContainer = styled.div`
   border-radius: 3px;
 `;
 
-const AccordionItemContainer = styled.div`
-  &:focus {
-    outline: 2px solid ${Colors.pink};
-  }
-`;
+const AccordionItemContainer = styled.div``;
 
 const AccordionSummaryButton = styled.button`
   background: #ffffff00;
-  padding: 10px;
   width: 100%;
   text-align: left;
   border: none;
@@ -36,13 +31,9 @@ const AccordionSummaryButton = styled.button`
       margin-left: 5px;
     }
   }
-  &:focus {
-    outline: 2px solid ${Colors.pink};
-  }
 `;
 
 const AccordionDetailsContainer = styled.div`
-  padding: 10px;
   transform: translateY(-10px);
   position: relative;
   display: none;
