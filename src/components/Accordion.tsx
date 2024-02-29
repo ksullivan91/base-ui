@@ -1,39 +1,64 @@
 import React, { useState, ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Colors, Icon, Typography } from '..';
 
 const AccordionContainer = styled.div`
-  border: 1px solid #ccc;
   border-radius: 3px;
 `;
 
 const AccordionItemContainer = styled.div`
-  border-bottom: 1px solid #ccc;
-
-  &:last-child {
-    border-bottom: none;
+  &:focus {
+    outline: 2px solid ${Colors.pink};
   }
 `;
 
 const AccordionSummaryButton = styled.button`
-  background: #f7f7f7;
+  background: #ffffff00;
   padding: 10px;
   width: 100%;
   text-align: left;
   border: none;
   cursor: pointer;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  h5 {
+    display: flex;
+    svg {
+      margin-left: 5px;
+    }
+  }
   &:focus {
-    outline: 2px solid blue;
+    outline: 2px solid ${Colors.pink};
   }
 `;
 
 const AccordionDetailsContainer = styled.div`
   padding: 10px;
-  display: none;
-
+  visibility: hidden;
+  transition: all 0.1s ease-in-out;
+  transform: translateY(-10px);
+  opacity: 0.1;
+  position: relative;
+  z-index: 0;
   &.is-open {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
   }
+`;
+
+const StyledIcon = styled(Icon)<{ isOpen: boolean }>`
+  position: relative;
+  top: -2px;
+  transition: transform 0.25s ease-in-out;
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      transform: rotate(180deg);
+    `}
 `;
 
 interface AccordionProps {
@@ -42,14 +67,14 @@ interface AccordionProps {
 
 interface AccordionItemProps {
   summary: string;
-  details: ReactNode;
   index: number;
   isOpen: boolean;
+  children: ReactNode;
   onToggle: (index: number) => void;
 }
 export const AccordionItem: React.FC<AccordionItemProps> = ({
   summary,
-  details,
+  children,
   index,
   isOpen,
   onToggle,
@@ -62,7 +87,18 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
         aria-controls={`panel${index}-content`}
         id={`panel${index}-header`}
       >
-        {summary}
+        <Typography variant="h4">{summary}</Typography>
+        <div>
+          <Typography variant="h5">
+            View All
+            <StyledIcon
+              isOpen={isOpen}
+              variant="dropdown"
+              color={Colors.pink}
+              height={18}
+            />
+          </Typography>
+        </div>
       </AccordionSummaryButton>
       <AccordionDetailsContainer
         className={isOpen ? 'is-open' : ''}
@@ -70,13 +106,12 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
         role="region"
         aria-labelledby={`panel${index}-header`}
       >
-        {details}
+        {children}
       </AccordionDetailsContainer>
     </AccordionItemContainer>
   );
 };
 
-// Accordion component
 export const Accordion: React.FC<AccordionProps> = ({ children }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 

@@ -205,16 +205,15 @@ export const EditIcon: React.FC<IconProps> = props => (
 export const DropdownIcon: React.FC<IconProps> = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     fill="none"
+    viewBox="0 0 24 24"
     {...props}
   >
     <path
       stroke={props.stroke}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
       d="m4 8 8 8 8-8"
     />
   </svg>
