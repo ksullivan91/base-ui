@@ -7,7 +7,7 @@ import {
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Modal from '../components/Modal';
-import { useModal } from '../utils/useModal';
+import useModal from '../utils/useModal';
 
 describe('ModalComponent', () => {
   test('it renders and can be closed', () => {

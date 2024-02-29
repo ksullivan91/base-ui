@@ -20,16 +20,16 @@ export const Colors = {
 
 export type ColorVariant = keyof typeof Colors;
 
-export type DarkColorVariantC = Exclude<
+export type DarkColorVariant = Exclude<
   ColorVariant,
   'lightPink' | 'lightPurple' | 'monoWhite' | 'monoGrayOne' | 'monoGrayTwo'
 >;
 
-export type LightColorVariant = Exclude<ColorVariant, DarkColorVariantC>;
+export type LightColorVariant = Exclude<ColorVariant, DarkColorVariant>;
 
 export const isDarkColorVariant = (
   variant: ColorVariant
-): variant is DarkColorVariantC => {
+): variant is DarkColorVariant => {
   return (
     variant !== 'lightPink' &&
     variant !== 'lightPurple' &&

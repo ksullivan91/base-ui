@@ -7,7 +7,7 @@ import Modal, {
   ModalProps,
   StyledModal,
 } from '../components/Modal';
-import { useModal } from '../utils/useModal';
+import useModal from '../utils/useModal';
 import {
   AlternativeButton,
   ButtonProps,

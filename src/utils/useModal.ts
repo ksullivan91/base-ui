@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export const useModal = (open?: boolean) => {
+function useModal(open?: boolean) {
   const [isOpen, setIsOpen] = useState(open ?? false);
 
   const openModal = useCallback(() => {
@@ -16,4 +16,6 @@ export const useModal = (open?: boolean) => {
     openModal,
     closeModal,
   };
-};
+}
+
+export default useModal;

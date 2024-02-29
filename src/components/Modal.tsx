@@ -66,6 +66,8 @@ export const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
       onClose={onClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      aria-model={open ? 'true' : 'false'}
+      aria-hidden={open ? 'false' : 'true'}
     >
       <ModalBackdrop onClick={onClose}>
         <ModalContent onClick={e => e.stopPropagation()}>
