@@ -112,7 +112,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   );
 };
 
-export const Accordion: React.FC<AccordionProps> = ({ children }) => {
+const Accordion: React.FC<AccordionProps> = ({ children }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
@@ -131,3 +131,5 @@ export const Accordion: React.FC<AccordionProps> = ({ children }) => {
     </AccordionContainer>
   );
 };
+
+export default Accordion;

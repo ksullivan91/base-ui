@@ -13,6 +13,7 @@ export { default as Typography } from './components/Typography';
 export { default as Dropdown } from './components/Dropdown';
 export { default as Modal } from './components/Modal';
 export { default as Badge } from './components/Badge';
+export { default as Accordion, AccordionItem } from './components/Accordion';
 
 export { default as useStatus } from './utils/useStatus';
 export { default as usePortalContainer } from './utils/usePortalContainer';
