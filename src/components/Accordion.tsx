@@ -62,6 +62,7 @@ const StyledIcon = styled(Icon)<{ isOpen: boolean }>`
 
 interface AccordionProps {
   children: ReactNode;
+  defaultOpenItems?: number[];
 }
 
 interface AccordionItemProps {
@@ -111,18 +112,25 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   );
 };
 
-const Accordion: React.FC<AccordionProps> = ({ children }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+const Accordion: React.FC<AccordionProps> = ({
+  children,
+  defaultOpenItems = [],
+}) => {
+  const [openIndices, setOpenIndices] = useState<number[]>(defaultOpenItems);
 
   const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    if (openIndices.includes(index)) {
+      setOpenIndices(openIndices.filter(i => i !== index)); // Remove index if it's already open
+    } else {
+      setOpenIndices([...openIndices, index]); // Add index if it's not open
+    }
   };
 
   return (
     <AccordionContainer>
       {React.Children.map(children, (child, index) =>
         React.cloneElement(child as React.ReactElement<AccordionItemProps>, {
-          isOpen: openIndex === index,
+          isOpen: openIndices.includes(index),
           onToggle: () => handleToggle(index),
           index,
         })
