@@ -1,11 +1,6 @@
 import React, { useState, ReactNode } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Colors, Icon, Typography } from '..';
-
-const slideInAnimation = keyframes`
-  from {display: none; opacity: 0.1; transform: translateY(-10px);}
-  to { display: block; transform: translateY(0px); opacity: 1;}
-`;
 
 const AccordionContainer = styled.div`
   border-radius: 3px;
@@ -36,17 +31,6 @@ const AccordionSummaryButton = styled.button`
 const AccordionDetailsContainer = styled.div`
   transform: translateY(-10px);
   position: relative;
-  display: none;
-  opacity: 0;
-  z-index: 0;
-  animation: ${slideInAnimation} 0.1s ease-in-out;
-  animation-direction: reverse;
-  &.is-open {
-    animation: ${slideInAnimation} 0.1s ease-in-out;
-    display: block;
-    opacity: 1;
-    transform: translateY(0px);
-  }
 `;
 
 const StyledIcon = styled(Icon)<{ isOpen: boolean }>`
@@ -67,25 +51,31 @@ interface AccordionProps {
 
 interface AccordionItemProps {
   summary: string;
-  index: number;
-  isOpen: boolean;
-  children: ReactNode;
-  onToggle: (index: number) => void;
+  children: React.ReactNode[];
+  open?: boolean;
+  defaultOpenChildrenIndices?: number[];
 }
 export const AccordionItem: React.FC<AccordionItemProps> = ({
   summary,
   children,
-  index,
-  isOpen,
-  onToggle,
+  defaultOpenChildrenIndices = [],
+  open = false,
 }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(open);
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  // Determine which children to display based on `isOpen` and `defaultOpenChildrenIndices`
+  const displayedChildren = isOpen
+    ? children
+    : children.filter((_, index) => defaultOpenChildrenIndices.includes(index));
+
   return (
     <AccordionItemContainer>
       <AccordionSummaryButton
-        onClick={() => onToggle(index)}
-        aria-expanded={isOpen}
-        aria-controls={`panel${index}-content`}
-        id={`panel${index}-header`}
+        onClick={handleToggle}
+        aria-expanded={isOpen ? 'true' : 'false'}
+        aria-controls={`panel-content`}
+        id={`panel-header`}
       >
         <Typography variant="h4">{summary}</Typography>
         <div>
@@ -102,11 +92,11 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
       </AccordionSummaryButton>
       <AccordionDetailsContainer
         className={isOpen ? 'is-open' : ''}
-        id={`panel${index}-content`}
+        id={`panel${isOpen}-content`}
         role="region"
-        aria-labelledby={`panel${index}-header`}
+        aria-labelledby={`panel${isOpen}-header`}
       >
-        {children}
+        {displayedChildren}
       </AccordionDetailsContainer>
     </AccordionItemContainer>
   );
@@ -116,25 +106,15 @@ const Accordion: React.FC<AccordionProps> = ({
   children,
   defaultOpenItems = [],
 }) => {
-  const [openIndices, setOpenIndices] = useState<number[]>(defaultOpenItems);
-
-  const handleToggle = (index: number) => {
-    if (openIndices.includes(index)) {
-      setOpenIndices(openIndices.filter(i => i !== index)); // Remove index if it's already open
-    } else {
-      setOpenIndices([...openIndices, index]); // Add index if it's not open
-    }
-  };
-
   return (
     <AccordionContainer>
-      {React.Children.map(children, (child, index) =>
-        React.cloneElement(child as React.ReactElement<AccordionItemProps>, {
-          isOpen: openIndices.includes(index),
-          onToggle: () => handleToggle(index),
-          index,
-        })
-      )}
+      {React.Children.map(children, (child: React.ReactNode, index: number) => {
+        const isOpen = defaultOpenItems.includes(index);
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, { ...child.props, open: isOpen });
+        }
+        return null;
+      })}
     </AccordionContainer>
   );
 };
