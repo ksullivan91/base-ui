@@ -44,7 +44,7 @@ const ButtonStyles = css`
   }
 `;
 
-const StyledPrimaryButton = styled(ButtonBase)`
+export const StyledPrimaryButton = styled(ButtonBase)`
   ${ButtonStyles}
   background-color: ${Colors.pink};
 
@@ -60,7 +60,7 @@ const StyledPrimaryButton = styled(ButtonBase)`
   }
 `;
 
-const StyledAlternativeButton = styled(ButtonBase)`
+export const StyledAlternativeButton = styled(ButtonBase)`
   ${ButtonStyles}
   background-color: #5e48e8;
 
@@ -77,7 +77,7 @@ const StyledAlternativeButton = styled(ButtonBase)`
   }
 `;
 
-const StyledSecondaryButton = styled(ButtonBase)`
+export const StyledSecondaryButton = styled(ButtonBase)`
   ${ButtonStyles}
   background-color: #fff;
   color: ${Colors.monoBlack};

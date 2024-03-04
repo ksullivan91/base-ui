@@ -9,12 +9,12 @@ export interface CheckboxProps
   label?: string;
 }
 
-const CheckboxContainer = styled.div`
+export const CheckboxContainer = styled.div`
   display: inline-flex;
   align-items: center;
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<{
+export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<{
   disabled?: boolean;
 }>`
   opacity: 0;
@@ -31,7 +31,10 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })<{
   }
 `;
 
-const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
+export const StyledCheckbox = styled.div<{
+  checked?: boolean;
+  disabled?: boolean;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,7 +76,7 @@ const StyledCheckbox = styled.div<{ checked?: boolean; disabled?: boolean }>`
     `}
 `;
 
-const CheckboxLabel = styled.label<{ disabled?: boolean }>`
+export const CheckboxLabel = styled.label<{ disabled?: boolean }>`
   position: relative;
   cursor: pointer;
   display: flex;
