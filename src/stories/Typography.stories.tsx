@@ -30,28 +30,31 @@ const Container = styled.div`
 `;
 
 export const Variants: StoryObj<JSX.IntrinsicAttributes> = {
-  render: (args) => (
+  render: args => (
     <Container>
-      <Typography {...args} variant='h1'>
+      <Typography {...args} variant="h1">
         Heading 1
       </Typography>
-      <Typography {...args} variant='h2'>
+      <Typography {...args} variant="h2">
         Heading 2
       </Typography>
-      <Typography {...args} variant='h3'>
+      <Typography {...args} variant="h3">
         Heading 3
       </Typography>
-      <Typography {...args} variant='h4'>
+      <Typography {...args} variant="h4">
         Heading 4
       </Typography>
-      <Typography {...args} variant='h5'>
+      <Typography {...args} variant="h5">
         Heading 5
       </Typography>
-      <Typography {...args} variant='p'>
+      <Typography {...args} variant="p">
         This is a paragraph.
       </Typography>
-      <Typography {...args} variant='small'>
+      <Typography {...args} variant="small">
         This is small text.
+      </Typography>
+      <Typography {...args} variant="label">
+        This is a label.
       </Typography>
     </Container>
   ),

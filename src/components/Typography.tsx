@@ -41,10 +41,12 @@ const variantStyles = {
     font-weight: normal;
   `,
   label: css`
-    font-size: 16px;
-    line-height: 18px;
     font-weight: 500;
-    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #b5b5b5;
   `,
   small: css`
     font-size: 16px;
