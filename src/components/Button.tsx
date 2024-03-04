@@ -104,7 +104,7 @@ const StyledSecondaryButton = styled(ButtonBase)`
 
 export const PrimaryButton: React.FC<ButtonProps> = props => (
   <StyledPrimaryButton {...props}>
-    <Typography variant="label" color="#fff">
+    <Typography variant="span" color="#fff">
       {props.children}
     </Typography>
   </StyledPrimaryButton>
@@ -112,7 +112,7 @@ export const PrimaryButton: React.FC<ButtonProps> = props => (
 
 export const AlternativeButton: React.FC<ButtonProps> = props => (
   <StyledAlternativeButton {...props}>
-    <Typography variant="label" color="#fff">
+    <Typography variant="span" color="#fff">
       {props.children}
     </Typography>
   </StyledAlternativeButton>
@@ -120,7 +120,7 @@ export const AlternativeButton: React.FC<ButtonProps> = props => (
 
 export const SecondaryButton: React.FC<ButtonProps> = props => (
   <StyledSecondaryButton {...props}>
-    <Typography variant="label" color={Colors.monoBlack}>
+    <Typography variant="span" color={Colors.monoBlack}>
       {props.children}
     </Typography>
   </StyledSecondaryButton>

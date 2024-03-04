@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 export interface TypographyProps {
   children: React.ReactNode;
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'label' | 'small';
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'label' | 'small' | 'span';
   className?: string;
   color?: string;
 }
@@ -52,6 +52,12 @@ const variantStyles = {
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
+  `,
+  span: css`
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+    text-align: center;
   `,
 };
 

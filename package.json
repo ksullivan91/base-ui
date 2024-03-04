@@ -3,7 +3,7 @@
   "license": "MIT",
   "description": "Base UI package",
   "private": false,
-  "version": "1.3.9",
+  "version": "1.4.0",
   "type": "module",
   "main": "dist/base-ui-react.umd.js",
   "module": "dist/base-ui-react.es.js",
