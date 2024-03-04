@@ -79,6 +79,7 @@ const StyledIcon = styled(Icon)`
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  height: 24px;
 `;
 
 export type MenuItemProps = MUIMenuItemProps;
