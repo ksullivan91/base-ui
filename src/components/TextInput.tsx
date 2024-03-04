@@ -13,13 +13,18 @@ interface InputStatusProps {
   status?: Status;
 }
 
-const StyledInputContainer = styled.div<{ status?: Status }>`
+const StyledInputContainer = styled.div`
+  position: relative;
+  padding: 16px 0;
+`;
+
+const StyledInputBorder = styled.div<{ status?: Status }>`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid
-    ${(props) => {
+    ${props => {
       switch (props.status?.type) {
         case 'error':
           return Colors.error;
@@ -37,7 +42,6 @@ const StyledInputContainer = styled.div<{ status?: Status }>`
   &:focus-within {
     border-color: ${Colors.pink};
   }
-  margin: 16px 0;
 `;
 
 const StyledInput = styled(Input)<React.InputHTMLAttributes<HTMLInputElement>>`
@@ -70,10 +74,9 @@ const StyledInput = styled(Input)<React.InputHTMLAttributes<HTMLInputElement>>`
 `;
 
 const StyledLabel = styled.label`
-  position: absolute;
+  position: relative;
   top: -8px;
   left: 0px;
-  transform: translateY(-100%);
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -87,7 +90,7 @@ const StyledStatusMessage = styled.div<{ statustype?: StatusType }>`
   bottom: -4px;
   left: 0px;
   transform: translateY(100%);
-  color: ${(props) => {
+  color: ${props => {
     switch (props.statustype) {
       case 'error':
         return Colors.error;
@@ -123,17 +126,19 @@ const TextInput: React.FC<TextInputProps> = ({
     id || `text-input-${Math.random().toString(36).substring(2, 9)}`;
 
   return (
-    <StyledInputContainer status={status}>
+    <StyledInputContainer>
       <StyledLabel htmlFor={inputId}>{labelText}</StyledLabel>
-      {props.required && <StyledSpan aria-hidden='true'>*</StyledSpan>}
-      <StyledInput
-        id={inputId}
-        {...props}
-        aria-describedby={`${inputId}-status`}
-      />
-      <StyledStatusMessage id={`${inputId}-status`} statustype={status?.type}>
-        {status?.message}
-      </StyledStatusMessage>
+      <StyledInputBorder status={status}>
+        {props.required && <StyledSpan aria-hidden="true">*</StyledSpan>}
+        <StyledInput
+          id={inputId}
+          {...props}
+          aria-describedby={`${inputId}-status`}
+        />
+        <StyledStatusMessage id={`${inputId}-status`} statustype={status?.type}>
+          {status?.message}
+        </StyledStatusMessage>
+      </StyledInputBorder>
     </StyledInputContainer>
   );
 };

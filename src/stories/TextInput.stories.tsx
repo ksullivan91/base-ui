@@ -20,12 +20,12 @@ const Container = styled.div`
 export default meta;
 
 export const WithNotificationStatus: StoryObj = {
-  render: (args) => (
+  render: args => (
     <Container>
       <TextInput
         {...args}
         status={{ type: 'label', message: 'info message' }}
-        placeholder='Input text here'
+        placeholder="Input text here"
       />
     </Container>
   ),
@@ -33,29 +33,30 @@ export const WithNotificationStatus: StoryObj = {
 };
 
 export const AllStatusTypes: StoryObj = {
-  render: (args) => (
+  render: args => (
     <Container>
-      <TextInput {...args} placeholder='Default Input' />
-      <TextInput {...args} disabled placeholder='Disabled Input' />
+      <TextInput {...args} placeholder="Default Input" />
+      <TextInput {...args} disabled placeholder="Disabled Input" />
       <TextInput
         {...args}
         status={{ type: 'label', message: 'Label message' }}
-        placeholder='Label'
+        placeholder="Label"
+        labelText="Input with Label"
       />
       <TextInput
         {...args}
         status={{ type: 'success', message: 'Success message' }}
-        placeholder='Success'
+        placeholder="Success"
       />
       <TextInput
         {...args}
         status={{ type: 'error', message: 'Error message' }}
-        placeholder='Error'
+        placeholder="Error"
       />
       <TextInput
         {...args}
         status={{ type: 'notification', message: 'Notification message' }}
-        placeholder='Notification'
+        placeholder="Notification"
       />
     </Container>
   ),
