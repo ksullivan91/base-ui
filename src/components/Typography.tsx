@@ -49,9 +49,9 @@ const variantStyles = {
     color: #b5b5b5;
   `,
   small: css`
-    font-size: 16px;
-    line-height: 20px;
     font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
   `,
 };
 
