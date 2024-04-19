@@ -7,7 +7,14 @@ import { StatusType } from '../utils/useStatus';
 import hexToRGBA from '../utils/hexToRGBA';
 import Typography from './Typography';
 
-export interface AlertProps extends PortalProps {
+export type AlertProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> &
+  AlertStatusProps &
+  PortalProps;
+
+interface AlertStatusProps {
   status: Exclude<StatusType, 'inactive' | 'label'>;
   message: string | React.ReactNode;
 }
@@ -27,7 +34,7 @@ const StyledAlert = styled.div<Alert>`
   position: relative;
   padding: 16px;
   padding-right: 48px;
-  margin: 4px 0;
+  margin: 0;
   border: 1px solid transparent;
   border-radius: 8px;
   display: flex;
@@ -61,7 +68,7 @@ const Alerts: React.FC<AlertProps> = ({
   if (!open) return null;
 
   return (
-    <Portal {...portalProps} container={container}>
+    <Portal {...portalProps} container={container} ref={undefined}>
       <StyledAlert
         $status={status}
         role="alert"

@@ -13,19 +13,20 @@ function usePortalContainer<T extends HTMLElement>(): [
 
   return [ref, isReady];
 }
-interface PortalContainerProps {
+interface PortalContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
 export const PortalContainer: React.FC<PortalContainerProps> = ({
   children,
+  style = undefined,
   ...props
 }) => {
   const [containerRef, isPortalReady] = usePortalContainer<HTMLDivElement>();
 
   return (
     <>
-      <div ref={containerRef} />
+      <div ref={containerRef} style={style} />
       {isPortalReady &&
         cloneElement(children as React.ReactElement, {
           container: containerRef.current,

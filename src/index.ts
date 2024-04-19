@@ -6,7 +6,7 @@ export { default as Icon } from './components/Icon';
 export { default as Radio } from './components/Radio';
 export { default as RadioGroup } from './components/RadioGroup';
 export { default as Switch } from './components/Switch';
-export { default as Tabs, TabPanel, TabsList } from './components/Tabs';
+export { default as Tabs, TabPanel, TabsList, Tab } from './components/Tabs';
 export { default as TextInput } from './components/TextInput';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Typography } from './components/Typography';
@@ -17,7 +17,10 @@ export { default as Accordion, AccordionItem } from './components/Accordion';
 export { default as TextLink } from './components/TextLink';
 
 export { default as useStatus } from './utils/useStatus';
-export { default as usePortalContainer } from './utils/usePortalContainer';
+export {
+  default as usePortalContainer,
+  PortalContainer,
+} from './utils/usePortalContainer';
 export { default as hexToRGBA } from './utils/hexToRGBA';
 export { default as useDropdown } from './utils/useDropdown';
 export { default as useHover } from './utils/useHover';

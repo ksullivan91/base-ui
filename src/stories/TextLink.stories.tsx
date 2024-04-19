@@ -8,5 +8,5 @@ export default {
 } as Meta<typeof TextLink>;
 
 export const Default: StoryObj<typeof TextLink> = {
-  render: () => <TextLink>Click Me</TextLink>,
+  render: () => <TextLink>Shop</TextLink>,
 };
